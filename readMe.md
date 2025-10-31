@@ -1,36 +1,59 @@
-# 🎧 Guessify – A Heardle-Style Spotify Game
+# Guessify (formerly Spordle)
 
-Welcome to Guessify! This is a Python game where you try to guess songs by listening to short snippets from your own Spotify account or popular playlists.
+Guessify is a command-line music guessing game powered by Spotify.  
+It connects to your Spotify account, plays a few seconds of a song, and challenges you to guess the song title or artist before time runs out.
 
----
-
-## 📦 Setup Instructions
-
-### 1. ✅ Prerequisites
-
-- Python 3.8 or higher installed
-- A **Spotify Premium account** (required to control playback)
+The project runs entirely in your local terminal — no web interface, no extra setup beyond Python and Spotify API credentials.
 
 ---
 
-### 2. 🔐 Edit the `.env` File
+## Overview
 
-In the root folder, edit the file named `.env` to have your username
+Guessify uses the [Spotify Web API](https://developer.spotify.com) to pull tracks from your playlists and play snippets through your Spotify account.  
+Because of this, you’ll need to set up a Spotify Developer account and create an application that provides an API key (Client ID and Client Secret).  
+These credentials are stored locally in a `.env` file.
 
 ---
 
-### 3. 📥 Install Dependencies
+## Requirements
 
-Double-click `install.bat`  
-(or open a terminal in this folder and run):
+Before you start, make sure you have:
+
+- **Python 3.8 or newer**, installed and added to PATH  
+  (You can check by running `python --version` in Command Prompt.)
+- A **Spotify Premium** account (Spotify only allows playback control for Premium users)
+- A **Spotify Developer account** (free)
+- **Git** (optional, but makes cloning easier)
+
+---
+
+## 1. Set up Spotify Developer account
+
+- Go to the [Spotify Developer Board](https://developer.spotify.com)
+- Click the 'Log in' button in the top right and sign into your account
+- Once signed in, click your username in the top right and then click the 'Dashboard' button
+- Now in the dashboard, click the 'Create App' button
+    - Give the app whatever name/description you want
+    - Use the Redirect URI given in the .env.example file
+    - Check off the Web API & Web Playback API
+    - Click Save
+- Once the app is created, you will see a new page that has your Client ID and a button that says 'View Client Secret'. Copy both keys down for later use
+
+## 2. Clone the repository
+
+Open Command Prompt and run (This will make a folder called "Guessify" in the current directory:
+
 ```cmd
-install.bat
-```
+git clone https://github.com/Mikeymac02/guessify.git
+cd guessify
 
-### 4. 🚀 Run the game
+## 3. Set up .env file
 
-```cmd
-env\Scripts\activate
-python main.py
+- Copy/paste the .env.example file and call it .env
+- Open the new file using notepad or another next editor
+- Fill in the following values
+  - Username: Your Spotify username (NOT YOUR EMAIL)
+  - SPOTIFY_CLIENT_ID: The key copied from your API page
+  - SPOTIFY_CLIENT_SECRET: The secret key copied from your API page
+  - redirect_uri: http://127.9.9.1:8888/callback
 
-```
