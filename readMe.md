@@ -72,7 +72,9 @@ cd guessify
 
 - Open a new command prompt
 - cd into your guessify directory
+- run 'env\Scripts\activate'
 - run 'py main.py' or 'python main.py depending on your python install
+
 
 
 
