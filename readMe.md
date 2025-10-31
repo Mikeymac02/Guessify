@@ -1,4 +1,4 @@
-# Guessify (formerly Spordle)
+# Guessify
 
 Guessify is a command-line music guessing game powered by Spotify.  
 It connects to your Spotify account, plays a few seconds of a song, and challenges you to guess the song title or artist before time runs out.
@@ -27,6 +27,12 @@ Before you start, make sure you have:
 
 ---
 
+## 0. Install Python
+- If you do not have python installed, go to [Python Downloads](https://www.python.org/downloads/windows/)
+    - Pick 'Download Windows installer (64-bit)' and run the installer
+        - Reccomended to keep the default path so you don't have to change code
+     
+          
 ## 1. Set up Spotify Developer account
 
 - Go to the [Spotify Developer Board](https://developer.spotify.com)
@@ -47,6 +53,7 @@ Open Command Prompt and run (This will make a folder called "Guessify" in the cu
 git clone https://github.com/Mikeymac02/guessify.git
 cd guessify
 
+
 ## 3. Set up .env file
 
 - Copy/paste the .env.example file and call it .env
@@ -56,4 +63,15 @@ cd guessify
   - SPOTIFY_CLIENT_ID: The key copied from your API page
   - SPOTIFY_CLIENT_SECRET: The secret key copied from your API page
   - redirect_uri: http://127.9.9.1:8888/callback
+
+## 4. Run the install.bat
+
+- Follow the instructions on the command prompt once you double-click the install.bat
+
+## 5. Run the game!
+
+- Open a new command prompt
+- cd into your guessify directory
+- run 'py main.py' or 'python main.py depending on your python install
+
 
