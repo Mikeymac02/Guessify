@@ -80,6 +80,9 @@ cd guessify
     py main.py
   ```
 
+## License
+This project is licensed under a custom Non-Commercial License.
+See the [LICENSE](LICENSE) file for details.
 
 
 
