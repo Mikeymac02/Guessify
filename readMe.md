@@ -1,6 +1,6 @@
-# 🎧 Spordle – A Heardle-Style Spotify Game
+# 🎧 Guessify – A Heardle-Style Spotify Game
 
-Welcome to Spordle! This is a Python game where you try to guess songs by listening to short snippets from your own Spotify account or popular playlists.
+Welcome to Guessify! This is a Python game where you try to guess songs by listening to short snippets from your own Spotify account or popular playlists.
 
 ---
 
@@ -32,4 +32,5 @@ install.bat
 ```cmd
 env\Scripts\activate
 python main.py
+
 ```
