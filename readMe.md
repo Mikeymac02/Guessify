@@ -51,6 +51,7 @@ Open Command Prompt and run (This will make a folder called "Guessify" in the cu
 
 ```cmd
 git clone https://github.com/Mikeymac02/guessify.git
+
 cd guessify
 ```
 
@@ -72,8 +73,13 @@ cd guessify
 
 - Open a new command prompt
 - cd into your guessify directory
-- run 'env\Scripts\activate'
-- run 'py main.py' or 'python main.py depending on your python install
+- Run (Depending on your python install, it is py or python)
+  ```cmd
+    env\Scripts\activate
+  
+    py main.py
+  ```
+
 
 
 
