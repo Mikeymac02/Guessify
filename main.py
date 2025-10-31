@@ -48,7 +48,7 @@ def guess_with_play_option(deviceId, uriVal, duration, correct_answer, artist, g
             print("Your guesses so far:")
             for i, prev in enumerate(currentGuesses, 1):
                 print(f"  {i}. {prev}")
-        user_input = input(f"\n🎧 Guess #"+str(guess)+": Type 'play' to listen: ").strip().lower()
+        user_input = input(f"\n Guess #"+str(guess)+": Type 'play' to listen: ").strip().lower()
         score = fuzz.ratio(user_input, correct_answer)
         playScore = fuzz.ratio(user_input, 'play')
 
@@ -135,6 +135,7 @@ if __name__ == '__main__':
             print(f"❌ Incorrect... The song was '{song_name}' by {artist_name}")
             IncorrectSongs += 1
             print("You've guessed " + str(CorrectSongs) + " songs correctly and " + str(IncorrectSongs) + " incorrectly")
+
 
 
 
