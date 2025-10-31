@@ -1,0 +1,18 @@
+# virtualenv
+env/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# dotenv
+.env
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
