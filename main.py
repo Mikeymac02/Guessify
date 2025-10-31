@@ -15,6 +15,8 @@ redirect_uri = os.getenv('redirect_uri')
 scope = "user-modify-playback-state,user-read-playback-state,user-read-currently-playing,streaming,playlist-read-private,user-top-read,user-read-email,user-read-private"
 spotify = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SPOTIFY_CLIENT_ID, client_secret=SPOTIFY_CLIENT_SECRET, redirect_uri=redirect_uri, scope=scope))
 
+hasActiveDevice = False
+
 def has_latin_characters(text):
     return bool(re.search(r'[a-zA-Z]', text))
 
@@ -43,7 +45,7 @@ def guess_with_play_option(deviceId, uriVal, duration, correct_answer, artist, g
         else:
             targetScore == 93
         if len(currentGuesses) != 0:
-            print("🧠 Your guesses so far:")
+            print("Your guesses so far:")
             for i, prev in enumerate(currentGuesses, 1):
                 print(f"  {i}. {prev}")
         user_input = input(f"\n🎧 Guess #"+str(guess)+": Type 'play' to listen: ").strip().lower()
@@ -75,18 +77,26 @@ def spordleChoice():
 
 def get_active_device_id():
     devices = spotify.devices()['devices']
-
+    id = ""
     for device in devices:
         if device.get('is_active'):
-            return device['id']
+            id = device['id']
+    if id != "":
+        hasActiveDevice = True
+        return id
+    else:
+        print("\nPlease open a web player or device\n")
+        get_active_device_id()
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     devices = spotify.devices()['devices']
-    print(devices)
     if not devices:
         print("No active Spotify devices found. Start Spotify on a device and try again.")
-        exit()
+    
+    
+    print("Please have a spotify web player open & play a song for 1 second to set an active device\n")
+    starter = input("Press any key to continue [THE PROGRAM WILL NOT WORK IF THERE IS NO ACTIVE DEVICE]\n...")
 
     device_id = get_active_device_id()
 
@@ -98,6 +108,7 @@ if __name__ == '__main__':
     IncorrectSongs = 0
     finished_songs = []
     while len(tracks) > 0:
+        print("---------------------------")
         song = random.choice(tracks)
         tracks.remove(song)
         finished_songs.append(song)
@@ -113,7 +124,6 @@ if __name__ == '__main__':
         for i, duration in enumerate(durations):
             if i > 0:
                 print(f"❌ Incorrect. Playing {duration} seconds now...")
-                print(duration)
                 play(device_id, uri, duration)
             correct, guess = guess_with_play_option(device_id, uri, duration, song_name, artist_name, (i + 1), guesses)
             guesses.append(guess)
@@ -125,6 +135,7 @@ if __name__ == '__main__':
             print(f"❌ Incorrect... The song was '{song_name}' by {artist_name}")
             IncorrectSongs += 1
             print("You've guessed " + str(CorrectSongs) + " songs correctly and " + str(IncorrectSongs) + " incorrectly")
+
 
 
 
