@@ -52,7 +52,7 @@ Open Command Prompt and run (This will make a folder called "Guessify" in the cu
 ```cmd
 git clone https://github.com/Mikeymac02/guessify.git
 cd guessify
-
+```
 
 ## 3. Set up .env file
 
@@ -73,5 +73,6 @@ cd guessify
 - Open a new command prompt
 - cd into your guessify directory
 - run 'py main.py' or 'python main.py depending on your python install
+
 
 
